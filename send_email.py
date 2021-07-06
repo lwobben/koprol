@@ -17,6 +17,7 @@ for index, row in df.iterrows():
         
         # Message variables
         name = row['Naam']
+        first_name = name.split(" ")[0]
         
         # Load message
         msg = MIMEMultipart()       # create a message
@@ -26,7 +27,7 @@ for index, row in df.iterrows():
         # Message parameters
         msg['From']=address
         msg['To']=row['E-mail']
-        msg['Subject']="This is a TEST"
+        msg['Subject']=f"{first_name}, je Rollies zijn klaar!"
         
         # Send
         print(f"Message is being send to {name}")
